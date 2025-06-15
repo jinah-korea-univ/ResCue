@@ -49,51 +49,44 @@
     </div>
   </div>
 </section>
-
-<!-- Abstract -->
-<section class="section">
-  <div class="container">
-    <h2 class="title is-3 has-text-centered">Abstract</h2>
-    <div class="content">
-      <p>
-Low-light image enhancement (LLIE) aims to restore the visual quality of images captured under poor illumination conditions, a task that remains challenging due to complex degradations such as overexposure, noise, and low contrast. In this paper, we propose a novel curriculum learning framework that facilitates effective LLIE model training by modulating sample selection according to estimated difficulty. Our key insight is that residual signals obtained via intrinsic decomposition capture image characteristics such as color spill, indirect lighting, and saturation, which correlate strongly with reconstruction difficulty. We use the magnitude of these residuals as a proxy for difficulty, enabling a curriculum strategy that begins with easier samples and gradually incorporates more difficult ones. Extensive experiments demonstrate that the proposed method consistently improves performance across various LLIE baseline models and datasets. Being model-agnostic and plug-and-play, our method offers meaningful gains through curriculum learning without requiring additional annotations or architectural modifications.
-      </p>
-    </div>
-  </div>
-</section>
-<!-- Image Comparison Section -->
 <section class="section">
   <div class="container has-text-centered">
-    <h2 class="title is-3">Low Light Image Enhancement Results</h2>
+    <h2 class="title is-3">Low-Light Enhancement Qualitative Results</h2>
 
-    <!-- Example Slider -->
-    <div class="image-compare-container" style="position: relative; width: 800px; max-width: 100%; margin: 0 auto;">
-      <div style="position: relative; width: 100%; overflow: hidden;">
-        <img src="static/images/your_image_before.png" style="width: 100%; display: block;">
-        <div class="overlay-image" style="position: absolute; top: 0; left: 0; overflow: hidden; width: 50%;">
-          <img src="static/images/your_image_after.png" style="width: 100%; display: block;">
-        </div>
+    <div class="columns is-centered">
+      <div class="column is-narrow">
+        <p><strong>Low-light</strong></p>
+        <img src="images/00725_low.png" class="comparison-img">
+        <img src="samples/sample2_low.png" class="comparison-img">
+        <img src="samples/sample3_low.png" class="comparison-img">
       </div>
-      <input type="range" min="0" max="100" value="50" class="slider" style="width: 100%; margin-top: 10px;">
+      <div class="column is-narrow">
+        <p><strong>Baseline</strong></p>
+        <img src="images/00725_snr.png" class="comparison-img">
+        <img src="samples/sample2_baseline.png" class="comparison-img">
+        <img src="samples/sample3_baseline.png" class="comparison-img">
+      </div>
+      <div class="column is-narrow">
+        <p><strong>Ours (ResCue)</strong></p>
+        <img src="images/00725_rescue.png" class="comparison-img">
+        <img src="samples/sample2_rescue.png" class="comparison-img">
+        <img src="samples/sample3_rescue.png" class="comparison-img">
+      </div>
     </div>
-    <p class="mt-2">LOLv2-Real Dataset</p>
   </div>
 </section>
 
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const containers = document.querySelectorAll('.image-compare-container');
+<style>
+.comparison-img {
+  width: 100%;
+  max-width: 300px;
+  margin: 10px auto;
+  display: block;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+</style>
 
-    containers.forEach(container => {
-      const slider = container.querySelector('.slider');
-      const overlay = container.querySelector('.overlay-image');
-
-      slider.addEventListener('input', () => {
-        overlay.style.width = `${slider.value}%`;
-      });
-    });
-  });
-</script>
 
 
 <!-- Poster PDF -->
