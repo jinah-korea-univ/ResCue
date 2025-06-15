@@ -53,21 +53,33 @@
   <div class="container has-text-centered">
     <h2 class="title is-3">Low-Light Enhancement Qualitative Results</h2>
 
-    <!-- Sample Row -->
+    <!-- 샘플 00725 -->
     <div class="scroll-wrapper">
       <button class="scroll-btn left">‹</button>
 
       <div class="scroll-row">
-        <img src="images/00725_low.png" class="sample-img" alt="Low-light">
-        <img src="images/00725_snr.png" class="sample-img" alt="Baseline (SNR)">
-        <img src="images/00725_snr_rescue.png" class="sample-img" alt="Ours (ResCue)">
-        <img src="images/00725_gt.png" class="sample-img" alt="GT">
+        <div class="image-block">
+          <img src="images/00725_low.png" class="sample-img" alt="Low-light image">
+          <p class="img-label">Low-light image</p>
+        </div>
+        <div class="image-block">
+          <img src="images/00725_snr.png" class="sample-img" alt="SNR Baseline">
+          <p class="img-label">SNR Baseline</p>
+        </div>
+        <div class="image-block">
+          <img src="images/00725_snr_rescue.png" class="sample-img" alt="Ours (ResCue)">
+          <p class="img-label">Ours (ResCue)</p>
+        </div>
+        <div class="image-block">
+          <img src="images/00725_gt.png" class="sample-img" alt="Ground-truth">
+          <p class="img-label">Ground-truth</p>
+        </div>
       </div>
 
       <button class="scroll-btn right">›</button>
     </div>
 
-    <p class="mt-2">Sample 00725</p>
+    <p class="mt-2">LOLv2 Results</p>
   </div>
 </section>
 
@@ -77,7 +89,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 1.5rem 0;
+  margin: 2rem 0;
 }
 
 .scroll-row {
@@ -85,19 +97,31 @@
   overflow-x: auto;
   scroll-behavior: smooth;
   scroll-snap-type: x mandatory;
-  gap: 1rem;
   padding: 1rem;
-  border-radius: 10px;
-  background: #f5f5f5;
   max-width: 90%;
+  background: #f5f5f5;
+  border-radius: 10px;
+}
+
+.image-block {
+  scroll-snap-align: start;
+  flex: 0 0 auto;
+  text-align: center;
 }
 
 .sample-img {
-  scroll-snap-align: start;
   max-height: 300px;
-  flex: 0 0 auto;
-  border-radius: 10px;
-  border: 1px solid #ccc;
+  height: auto;
+  border-radius: 0;
+  border: none;
+  margin: 0;
+  display: block;
+}
+
+.img-label {
+  font-size: 0.9rem;
+  margin-top: 0.3rem;
+  color: #444;
 }
 
 .scroll-btn {
@@ -120,9 +144,7 @@
 
 <script>
   document.addEventListener("DOMContentLoaded", () => {
-    const wrappers = document.querySelectorAll(".scroll-wrapper");
-
-    wrappers.forEach(wrapper => {
+    document.querySelectorAll(".scroll-wrapper").forEach(wrapper => {
       const row = wrapper.querySelector(".scroll-row");
       const btnLeft = wrapper.querySelector(".scroll-btn.left");
       const btnRight = wrapper.querySelector(".scroll-btn.right");
@@ -130,7 +152,6 @@
       btnLeft.addEventListener("click", () => {
         row.scrollBy({ left: -300, behavior: "smooth" });
       });
-
       btnRight.addEventListener("click", () => {
         row.scrollBy({ left: 300, behavior: "smooth" });
       });
