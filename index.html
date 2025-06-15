@@ -53,28 +53,90 @@
   <div class="container has-text-centered">
     <h2 class="title is-3">Low-Light Enhancement Qualitative Results</h2>
 
-    <div class="columns is-centered">
-      <div class="column is-narrow">
-        <p><strong>Low-light</strong></p>
-        <img src="images/00725_low.png" class="comparison-img">
-        <img src="samples/sample2_low.png" class="comparison-img">
-        <img src="samples/sample3_low.png" class="comparison-img">
+    <!-- Sample Row -->
+    <div class="scroll-wrapper">
+      <button class="scroll-btn left">‹</button>
+
+      <div class="scroll-row">
+        <img src="images/00725_low.png" class="sample-img" alt="Low-light">
+        <img src="images/00725_snr.png" class="sample-img" alt="Baseline (SNR)">
+        <img src="images/00725_snr_rescue.png" class="sample-img" alt="Ours (ResCue)">
+        <img src="images/00725_gt.png" class="sample-img" alt="GT">
       </div>
-      <div class="column is-narrow">
-        <p><strong>Baseline</strong></p>
-        <img src="images/00725_snr.png" class="comparison-img">
-        <img src="samples/sample2_baseline.png" class="comparison-img">
-        <img src="samples/sample3_baseline.png" class="comparison-img">
-      </div>
-      <div class="column is-narrow">
-        <p><strong>Ours (ResCue)</strong></p>
-        <img src="images/00725_snr_rescue.png" class="comparison-img">
-        <img src="samples/sample2_rescue.png" class="comparison-img">
-        <img src="samples/sample3_rescue.png" class="comparison-img">
-      </div>
+
+      <button class="scroll-btn right">›</button>
     </div>
+
+    <p class="mt-2">Sample 00725</p>
   </div>
 </section>
+
+<style>
+.scroll-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1.5rem 0;
+}
+
+.scroll-row {
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  gap: 1rem;
+  padding: 1rem;
+  border-radius: 10px;
+  background: #f5f5f5;
+  max-width: 90%;
+}
+
+.sample-img {
+  scroll-snap-align: start;
+  max-height: 300px;
+  flex: 0 0 auto;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+}
+
+.scroll-btn {
+  background: #3273dc;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  z-index: 1;
+  margin: 0 0.5rem;
+  transition: background 0.2s;
+}
+.scroll-btn:hover {
+  background: #2759aa;
+}
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const wrappers = document.querySelectorAll(".scroll-wrapper");
+
+    wrappers.forEach(wrapper => {
+      const row = wrapper.querySelector(".scroll-row");
+      const btnLeft = wrapper.querySelector(".scroll-btn.left");
+      const btnRight = wrapper.querySelector(".scroll-btn.right");
+
+      btnLeft.addEventListener("click", () => {
+        row.scrollBy({ left: -300, behavior: "smooth" });
+      });
+
+      btnRight.addEventListener("click", () => {
+        row.scrollBy({ left: 300, behavior: "smooth" });
+      });
+    });
+  });
+</script>
 
 <style>
 .comparison-img {
