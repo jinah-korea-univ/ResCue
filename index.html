@@ -74,40 +74,39 @@ Low-light image enhancement (LLIE) aims to restore the visual quality of images 
   <div class="container has-text-centered">
     <h2 class="title is-3">Low-Light Enhancement Qualitative Results</h2>
 
-    <!-- 두 줄 합치기 -->
+    <!-- 스크롤 전체 -->
     <div class="scroll-wrapper">
       <div class="scroll-row">
 
-        <!-- 첫 번째 샘플 (row 1) -->
+        <!-- 이미지 그룹: Low -->
         <div class="image-block">
-          <img src="images/00725_low.png" class="sample-img" alt="Low-light image">
-          <img src="images/00717_low.png" class="sample-img second-row" alt="Low-light image">
+          <img src="images/lolv2_00725_low.png" class="sample-img" alt="Low-light image">
+          <img src="images/lolv2_00717_low.png" class="sample-img second-row" alt="Low-light image">
+          <p class="img-label">Low-light image</p>
         </div>
 
+        <!-- SNR -->
         <div class="image-block">
-          <img src="images/00725_snr.png" class="sample-img" alt="SNR Baseline">
-          <img src="images/00717_snr.png" class="sample-img second-row" alt="SNR Baseline">
+          <img src="images/lolv2_00725_snr.png" class="sample-img" alt="SNR Baseline">
+          <img src="images/lolv2_00717_snr.png" class="sample-img second-row" alt="SNR Baseline">
+          <p class="img-label">SNR Baseline</p>
         </div>
 
+        <!-- ResCue -->
         <div class="image-block">
-          <img src="images/00725_snr_rescue.png" class="sample-img" alt="Ours (ResCue)">
-          <img src="images/00717_snr_rescue.png" class="sample-img second-row" alt="Ours (ResCue)">
+          <img src="images/lolv2_00725_snr_rescue.png" class="sample-img" alt="Ours (ResCue)">
+          <img src="images/lolv2_00717_snr_rescue.png" class="sample-img second-row" alt="Ours (ResCue)">
+          <p class="img-label">Ours (ResCue)</p>
         </div>
 
+        <!-- GT -->
         <div class="image-block">
-          <img src="images/00725_gt.png" class="sample-img" alt="Ground-truth">
-          <img src="images/00717_gt.png" class="sample-img second-row" alt="Ground-truth">
+          <img src="images/lolv2_00725_gt.png" class="sample-img" alt="Ground-truth">
+          <img src="images/lolv2_00717_gt.png" class="sample-img second-row" alt="Ground-truth">
+          <p class="img-label">Ground-truth</p>
         </div>
 
       </div>
-    </div>
-
-    <!-- 이미지 종류 이름 한번만 -->
-    <div class="columns is-mobile is-centered mt-3">
-      <div class="column has-text-centered"><strong>Low-light image</strong></div>
-      <div class="column has-text-centered"><strong>SNR Baseline</strong></div>
-      <div class="column has-text-centered"><strong>Ours (ResCue)</strong></div>
-      <div class="column has-text-centered"><strong>Ground-truth</strong></div>
     </div>
 
     <p class="mt-2">LOLv2 Results</p>
@@ -135,9 +134,10 @@ Low-light image enhancement (LLIE) aims to restore the visual quality of images 
 }
 
 .image-block {
-  scroll-snap-align: start;
-  flex: 0 0 auto;
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 5px;
 }
 
 .sample-img {
@@ -148,7 +148,9 @@ Low-light image enhancement (LLIE) aims to restore the visual quality of images 
   margin: 0;
   display: block;
 }
-
+.sample-img.second-row {
+  margin-top: 10px; 
+}
 .img-label {
   font-size: 1.2rem;
   font-weight: 600;
@@ -181,12 +183,6 @@ Low-light image enhancement (LLIE) aims to restore the visual quality of images 
       const btnLeft = wrapper.querySelector(".scroll-btn.left");
       const btnRight = wrapper.querySelector(".scroll-btn.right");
 
-      btnLeft.addEventListener("click", () => {
-        row.scrollBy({ left: -300, behavior: "smooth" });
-      });
-      btnRight.addEventListener("click", () => {
-        row.scrollBy({ left: 300, behavior: "smooth" });
-      });
     });
   });
 </script>
