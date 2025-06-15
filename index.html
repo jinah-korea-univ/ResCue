@@ -61,34 +61,40 @@ Low-light image enhancement (LLIE) aims to restore the visual quality of images 
     </div>
   </div>
 </section>
-
-<!-- Image Section -->
+<!-- Image Comparison Section -->
 <section class="section">
-  <div class="container">
-    <h2 class="title is-3 has-text-centered">Low Light Image Enhancement Results</h2>
-    <div class="columns is-multiline is-centered">
-      <div class="column is-full">
-                <h3 class="has-text-centered mt-2">LOLv2 Real Dataset</h3>
-        <figure class="image is-inline-block">
-          <img src="lolv2_2.png" style="max-width: 1600px; height: auto;">
-        </figure>
+  <div class="container has-text-centered">
+    <h2 class="title is-3">Low Light Image Enhancement Results</h2>
 
+    <!-- Example Slider -->
+    <div class="image-compare-container" style="position: relative; width: 800px; max-width: 100%; margin: 0 auto;">
+      <div style="position: relative; width: 100%; overflow: hidden;">
+        <img src="static/images/your_image_before.png" style="width: 100%; display: block;">
+        <div class="overlay-image" style="position: absolute; top: 0; left: 0; overflow: hidden; width: 50%;">
+          <img src="static/images/your_image_after.png" style="width: 100%; display: block;">
+        </div>
       </div>
-      <div class="column is-full">
-        <figure class="image"><img src="static/images/your_image2.png"></figure>
-        <p class="has-text-centered mt-2">LOLv2-Real Dataset</p>
-      </div>
-      <div class="column is-full">
-        <figure class="image"><img src="static/images/your_image3.png"></figure>
-        <p class="has-text-centered mt-2">FiveK Dataset</p>
-      </div>
-      <div class="column is-full">
-        <figure class="image"><img src="static/images/your_image4.png"></figure>
-        <p class="has-text-centered mt-2">Unpaired Dataset</p>
-      </div>
+      <input type="range" min="0" max="100" value="50" class="slider" style="width: 100%; margin-top: 10px;">
     </div>
+    <p class="mt-2">LOLv2-Real Dataset</p>
   </div>
 </section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const containers = document.querySelectorAll('.image-compare-container');
+
+    containers.forEach(container => {
+      const slider = container.querySelector('.slider');
+      const overlay = container.querySelector('.overlay-image');
+
+      slider.addEventListener('input', () => {
+        overlay.style.width = `${slider.value}%`;
+      });
+    });
+  });
+</script>
+
 
 <!-- Poster PDF -->
 <section class="section has-background-light">
