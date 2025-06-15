@@ -74,50 +74,42 @@ Low-light image enhancement (LLIE) aims to restore the visual quality of images 
   <div class="container has-text-centered">
     <h2 class="title is-3">Low-Light Enhancement Qualitative Results</h2>
 
-    <!-- 샘플 00725 -->
+    <!-- 두 줄 합치기 -->
     <div class="scroll-wrapper">
-
-
       <div class="scroll-row">
+
+        <!-- 첫 번째 샘플 (row 1) -->
         <div class="image-block">
           <img src="images/00725_low.png" class="sample-img" alt="Low-light image">
-          <p class="img-label">Low-light image</p>
+          <img src="images/00717_low.png" class="sample-img second-row" alt="Low-light image">
         </div>
+
         <div class="image-block">
           <img src="images/00725_snr.png" class="sample-img" alt="SNR Baseline">
-          <p class="img-label">SNR Baseline</p>
+          <img src="images/00717_snr.png" class="sample-img second-row" alt="SNR Baseline">
         </div>
+
         <div class="image-block">
           <img src="images/00725_snr_rescue.png" class="sample-img" alt="Ours (ResCue)">
-          <p class="img-label">Ours (ResCue)</p>
+          <img src="images/00717_snr_rescue.png" class="sample-img second-row" alt="Ours (ResCue)">
         </div>
+
         <div class="image-block">
           <img src="images/00725_gt.png" class="sample-img" alt="Ground-truth">
-          <p class="img-label">Ground-truth</p>
+          <img src="images/00717_gt.png" class="sample-img second-row" alt="Ground-truth">
         </div>
-      </div>
 
-    </div>
-      <div class="scroll-row">
-        <div class="image-block">
-          <img src="images/00717_low.png" class="sample-img" alt="Low-light image">
-          <p class="img-label">Low-light image</p>
-        </div>
-        <div class="image-block">
-          <img src="images/00717_snr.png" class="sample-img" alt="SNR Baseline">
-          <p class="img-label">SNR Baseline</p>
-        </div>
-        <div class="image-block">
-          <img src="images/00717_snr_rescue.png" class="sample-img" alt="Ours (ResCue)">
-          <p class="img-label">Ours (ResCue)</p>
-        </div>
-        <div class="image-block">
-          <img src="images/00717_gt.png" class="sample-img" alt="Ground-truth">
-          <p class="img-label">Ground-truth</p>
-        </div>
       </div>
-
     </div>
+
+    <!-- 이미지 종류 이름 한번만 -->
+    <div class="columns is-mobile is-centered mt-3">
+      <div class="column has-text-centered"><strong>Low-light image</strong></div>
+      <div class="column has-text-centered"><strong>SNR Baseline</strong></div>
+      <div class="column has-text-centered"><strong>Ours (ResCue)</strong></div>
+      <div class="column has-text-centered"><strong>Ground-truth</strong></div>
+    </div>
+
     <p class="mt-2">LOLv2 Results</p>
   </div>
 </section>
