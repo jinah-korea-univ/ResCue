@@ -58,7 +58,15 @@
       border: none;
       display: block;
     }
-
+    .sample-img {
+      width: 270px;
+      height: 350px;
+      object-fit: cover;
+      margin: 0;
+      padding: 0;
+      border: none;
+      display: block;
+    }
     .sample-img.second-row {
       margin-top: 12px; /* 위아래 이미지 간격 */
     }
@@ -176,6 +184,104 @@ Low-light image enhancement (LLIE) aims to restore the visual quality of images 
       </div>
     </div>
 
+
+
+    <!-- Unpaired -->
+    <h2 class="title is-4 has-text-weight-bold mt-6 mb-2"> DICM Results </h2>
+    <div class="scroll-wrapper">
+      <div class="scroll-row">
+        <div class="image-block">
+          <img src="images/dicm_04_gt.JPG" class="sample-img">
+          <p class="img-label">Low-light </p>
+        </div>
+        <div class="image-block">
+          <img src="images/dicm_04_ori.JPG" class="sample-img">
+          <p class="img-label">HVI-CIDnet </p>
+        </div>
+        <div class="image-block">
+          <img src="images/dicm_04_rescue.JPG" class="sample-img">
+          <p class="img-label">ResCue </p>
+        </div>
+        <div class="image-block">
+          <img src="images/dicm_41_gt.jpg" class="sample-img">
+          <p class="img-label">Low-light </p>
+        </div>
+        <div class="image-block">
+          <img src="images/dicm_41_ori.jpg" class="sample-img">
+          <p class="img-label">HVI-CIDnet </p>
+        </div>
+        <div class="image-block">
+          <img src="images/dicm_41_rescue.jpg" class="sample-img">
+          <p class="img-label">ResCue </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Unpaired -->
+    <h2 class="title is-4 has-text-weight-bold mt-6 mb-2"> LIME, VV Results </h2>
+    <div class="scroll-wrapper">
+      <div class="scroll-row">
+        <div class="image-block">
+          <img src="images/lime_9_gt.bmp" class="sample-img2">
+          <p class="img-label">Low-light </p>
+        </div>
+        <div class="image-block">
+          <img src="images/lime_9_ori.bmp" class="sample-img2">
+          <p class="img-label">HVI-CIDnet </p>
+        </div>
+        <div class="image-block">
+          <img src="images/lime_9_rescue.bmp" class="sample-img2">
+          <p class="img-label">ResCue </p>
+        </div>
+        <div class="image-block">
+          <img src="images/vv_P1010732_gt.jpg" class="sample-img2">
+          <p class="img-label">Low-light </p>
+        </div>
+        <div class="image-block">
+          <img src="images/vv_P1010732_ori.jpg" class="sample-img2">
+          <p class="img-label">HVI-CIDnet </p>
+        </div>
+        <div class="image-block">
+          <img src="images/vv_P1010732_rescue.jpg" class="sample-img2">
+          <p class="img-label">ResCue </p>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Unpaired -->
+    <h2 class="title is-4 has-text-weight-bold mt-6 mb-2"> NPE, MEF Results </h2>
+    <div class="scroll-wrapper">
+      <div class="scroll-row">
+        <div class="image-block">
+          <img src="images/npe_nightfall_gt.jpg" class="sample-img">
+          <p class="img-label">Low-light </p>
+        </div>
+        <div class="image-block">
+          <img src="images/npe_nightfall_ori.jpg" class="sample-img">
+          <p class="img-label">HVI-CIDnet </p>
+        </div>
+        <div class="image-block">
+          <img src="images/npe_nightfall_rescue.jpg" class="sample-img">
+          <p class="img-label">ResCue </p>
+        </div>
+        <div class="image-block">
+          <img src="images/mef_Venice_gt.jpg" class="sample-img">
+          <p class="img-label">Low-light </p>
+        </div>
+        <div class="image-block">
+          <img src="images/mef_Venice_ori.jpg" class="sample-img">
+          <p class="img-label">HVI-CIDnet </p>
+        </div>
+        <div class="image-block">
+          <img src="images/mef_Venice_rescue.jpg" class="sample-img">
+          <p class="img-label">ResCue </p>
+        </div>
+      </div>
+    </div>
+
+
+    
     <!-- LOLv1 -->
     <h2 class="title is-4 has-text-weight-bold mt-6 mb-2">LOLv1 Results</h2>
     <div class="scroll-wrapper">
