@@ -19,8 +19,65 @@
       padding-top: 3rem;
       padding-bottom: 3rem;
     }
+
+    .scroll-wrapper {
+      position: relative;
+      margin: 2rem 0;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .scroll-row {
+      display: flex;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      scroll-behavior: smooth;
+      scroll-snap-type: x mandatory;
+      background: #f5f5f5;
+      border-radius: 10px;
+      padding: 1rem 0;
+    }
+
+    .image-block {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      scroll-snap-align: start;
+      margin: 0;
+    }
+
+    .sample-img {
+      max-height: 250px;
+      height: auto;
+      display: block;
+      margin: 0;
+      padding: 0;
+      border: none;
+    }
+
+    .sample-img.second-row {
+      margin-top: 12px;
+    }
+
+    .img-label {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-top: 0.5rem;
+      color: #444;
+      text-align: center;
+    }
+
+    .comparison-img {
+      width: 100%;
+      max-width: 300px;
+      margin: 10px auto;
+      display: block;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
   </style>
 </head>
+
 <body>
 
 <!-- Header -->
@@ -50,8 +107,6 @@
   </div>
 </section>
 
-
-  
 <!-- Paper abstract -->
 <section class="section hero is-light">
   <div class="container is-max-desktop">
@@ -67,18 +122,16 @@ Low-light image enhancement (LLIE) aims to restore the visual quality of images 
     </div>
   </div>
 </section>
-<!-- End paper abstract -->
 
-
+<!-- Qualitative Results -->
 <section class="section">
   <div class="container has-text-centered">
     <h2 class="title is-3">Low-Light Enhancement Qualitative Results</h2>
 
-    <!-- 스크롤 전체 -->
     <div class="scroll-wrapper">
       <div class="scroll-row">
 
-        <!-- 이미지 그룹: Low -->
+        <!-- Low -->
         <div class="image-block">
           <img src="images/lolv2_00725_low.png" class="sample-img" alt="Low-light image">
           <img src="images/lolv2_00717_low.png" class="sample-img second-row" alt="Low-light image">
@@ -113,92 +166,19 @@ Low-light image enhancement (LLIE) aims to restore the visual quality of images 
   </div>
 </section>
 
-<style>
-.scroll-wrapper {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 2rem 0;
-}
-
-.scroll-row {
-  display: flex;
-  overflow-x: auto;
-  scroll-behavior: smooth;
-  scroll-snap-type: x mandatory;
-  padding: 1rem;
-  max-width: 90%;
-  background: #f5f5f5;
-  border-radius: 10px;
-}
-
-.image-block {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 0 5px;
-}
-
-.sample-img {
-  max-height: 250px;
-  height: auto;
-  border-radius: 0;
-  border: none;
-  margin: 0;
-  display: block;
-}
-.sample-img.second-row {
-  margin-top: 10px; 
-}
-.img-label {
-  font-size: 1.2rem;
-  font-weight: 600;
-  margin-top: 0.5rem;
-  color: #444;
-}
-
-.scroll-btn {
-  background: #3273dc;
-  color: white;
-  border: none;
-  border-radius: 50%;
-  font-size: 1.5rem;
-  width: 40px;
-  height: 40px;
-  cursor: pointer;
-  z-index: 1;
-  margin: 0 0.5rem;
-  transition: background 0.2s;
-}
-.scroll-btn:hover {
-  background: #2759aa;
-}
-</style>
-
+<!-- Enable horizontal scroll with mouse wheel -->
 <script>
   document.addEventListener("DOMContentLoaded", () => {
-    document.querySelectorAll(".scroll-wrapper").forEach(wrapper => {
-      const row = wrapper.querySelector(".scroll-row");
-      const btnLeft = wrapper.querySelector(".scroll-btn.left");
-      const btnRight = wrapper.querySelector(".scroll-btn.right");
-
+    document.querySelectorAll(".scroll-row").forEach(row => {
+      row.addEventListener("wheel", (evt) => {
+        if (evt.deltaY !== 0) {
+          evt.preventDefault();
+          row.scrollLeft += evt.deltaY;
+        }
+      }, { passive: false });
     });
   });
 </script>
-
-<style>
-.comparison-img {
-  width: 100%;
-  max-width: 300px;
-  margin: 10px auto;
-  display: block;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-}
-</style>
-
-
 
 <!-- Poster PDF -->
 <section class="section has-background-light">
@@ -221,30 +201,22 @@ Low-light image enhancement (LLIE) aims to restore the visual quality of images 
   </div>
 </section>
 
-
-  <footer class="footer">
+<!-- Footer -->
+<footer class="footer">
   <div class="container">
     <div class="columns is-centered">
       <div class="column is-8">
         <div class="content">
-
           <p>
-            This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a> which was adopted from the <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
-            You are free to borrow the source code of this website, we just ask that you link back to this page in the footer. <br> This website is licensed under a <a rel="license"  href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
-            Commons Attribution-ShareAlike 4.0 International License</a>.
+            This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a> which was adopted from the <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
+            You are free to borrow the source code of this website, we just ask that you link back to this page in the footer. <br>
+            This website is licensed under a <a rel="license"  href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
           </p>
-
         </div>
       </div>
     </div>
   </div>
 </footer>
 
-<!-- Statcounter tracking code -->
-  
-<!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
-
-    <!-- End of Statcounter Code -->
-
-  </body>
-  </html>
+</body>
+</html>
